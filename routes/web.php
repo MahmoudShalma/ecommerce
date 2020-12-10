@@ -13,10 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('front.home');
+// });
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+
+route::get('sendSms//','HomeController@sendSms');
+
 Route::get('/', function () {
     return view('front.home');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Auth::routes();
+
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
